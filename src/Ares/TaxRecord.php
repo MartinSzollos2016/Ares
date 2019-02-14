@@ -19,9 +19,9 @@ class TaxRecord
      *
      * @param string $taxId
      */
-    public function __construct($taxId)
+    public function __construct($taxId = null)
     {
-        $this->taxId = !empty($taxId) ? $taxId : null;
+        $this->taxId = $taxId;
     }
 
     /**
@@ -39,4 +39,9 @@ class TaxRecord
     {
         return strval($this->taxId);
     }
+
+	public function setTaxId($taxId)
+	{
+		$this->taxId = $taxId;
+	}
 }
