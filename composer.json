@@ -16,13 +16,15 @@
         }
     ],
     "require": {
-        "php": "^5.4|^7.0",
+        "php": "^7.2",
         "beberlei/assert": "^2.4",
         "dfridrich/library": "^1.0",
-        "fabpot/goutte": "^2.0|^3.0"
+        "fabpot/goutte": "^2.0|^3.0",
+        "ext-SimpleXML": "^7.2"
     },
     "require-dev": {
-        "symplify/coding-standard": "^0.1",
+        "slevomat/coding-standard": "^4.8",
+        "consistence/coding-standard": "^3.7",
         "phpunit/phpunit": "^5"
     },
     "autoload": {
@@ -31,7 +33,7 @@
         }
     },
     "config": {
-        "platform": { "php": "7.0" },
+        "platform": { "php": "7.2" },
         "bin-dir": "bin"
     }
 }

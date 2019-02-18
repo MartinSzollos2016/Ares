@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Defr\Justice;
 
-use Exception;
-
-final class SubjectNotFoundException extends Exception
+final class SubjectNotFoundException extends \Exception
 {
+
 }

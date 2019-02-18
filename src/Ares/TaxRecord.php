@@ -1,47 +1,41 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Defr\Ares;
 
 /**
  * Class TaxRecord.
- *
- * @author Dennis Fridrich <fridrich.dennis@gmail.com>
  */
 class TaxRecord
 {
-    /**
-     * @var string
-     */
-    private $taxId = null;
 
-    /**
-     * TaxRecord constructor.
-     *
-     * @param string $taxId
-     */
-    public function __construct($taxId = null)
-    {
-        $this->taxId = $taxId;
-    }
+	/** @var string|null */
+	private $taxId = null;
 
-    /**
-     * @return string
-     */
-    public function getTaxId()
-    {
-        return $this->taxId;
-    }
-
-    /**
-     * @return string
-     */
-    public function __toString()
-    {
-        return strval($this->taxId);
-    }
-
-	public function setTaxId($taxId)
+	/**
+	 * TaxRecord constructor.
+	 *
+	 * @param string $taxId
+	 */
+	public function __construct(?string $taxId = null)
 	{
 		$this->taxId = $taxId;
 	}
+
+	public function getTaxId(): ?string
+	{
+		return $this->taxId;
+	}
+
+	public function __toString(): string
+	{
+		return (string) $this->taxId;
+	}
+
+	public function setTaxId($taxId): void
+	{
+		$this->taxId = $taxId;
+	}
+
 }

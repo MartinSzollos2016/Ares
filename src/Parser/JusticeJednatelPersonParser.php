@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Defr\Parser;
 
 use Defr\Parser\Helper\StringHelper;
@@ -8,22 +10,19 @@ use Symfony\Component\DomCrawler\Crawler;
 
 final class JusticeJednatelPersonParser
 {
-    /**
-     * @param Crawler $crawler
-     *
-     * @return Person
-     */
-    public static function parseFromDomCrawler(Crawler $crawler)
-    {
-        $content = $crawler->filter('.div-cell div div')->text();
-        $content = StringHelper::removeEmptyLines($content);
 
-        $contentItems = explode("\n", $content);
-        $contentItems = array_map('trim', $contentItems);
-        $name = trim(explode(',', $contentItems[0])[0]);
+	public static function parseFromDomCrawler(Crawler $crawler): Person
+	{
+		$content = $crawler->filter('.div-cell div div')->text();
+		$content = StringHelper::removeEmptyLines($content);
 
-        $birthday = DateTimeParser::parseFromCzechDateString($contentItems[1]);
+		$contentItems = explode("\n", $content);
+		$contentItems = array_map('trim', $contentItems);
+		$name = trim(explode(',', $contentItems[0])[0]);
 
-        return new Person($name, $birthday, $contentItems[2]);
-    }
+		$birthday = DateTimeParser::parseFromCzechDateString($contentItems[1]);
+
+		return new Person($name, $birthday, $contentItems[2]);
+	}
+
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Defr\ValueObject;
 
 use DateTime;
@@ -7,54 +9,36 @@ use DateTimeInterface;
 
 final class Person
 {
-    /**
-     * @var string
-     */
-    private $name;
 
-    /**
-     * @var DateTimeInterface
-     */
-    private $birthday;
+	/** @var string */
+	private $name;
 
-    /**
-     * @var string
-     */
-    private $address;
+	/** @var \DateTimeInterface */
+	private $birthday;
 
-    /**
-     * @param string $name
-     * @param DateTimeInterface $birthday
-     * @param string $address
-     */
-    public function __construct($name, DateTimeInterface $birthday, $address)
-    {
-        $this->name = $name;
-        $this->birthday = $birthday;
-        $this->address = $address;
-    }
+	/** @var string */
+	private $address;
 
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
+	public function __construct(string $name, DateTimeInterface $birthday, string $address)
+	{
+		$this->name = $name;
+		$this->birthday = $birthday;
+		$this->address = $address;
+	}
 
-    /**
-     * @return DateTime
-     */
-    public function getBirthday()
-    {
-        return $this->birthday;
-    }
+	public function getName(): string
+	{
+		return $this->name;
+	}
 
-    /**
-     * @return string
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
+	public function getBirthday(): DateTime
+	{
+		return $this->birthday;
+	}
+
+	public function getAddress(): string
+	{
+		return $this->address;
+	}
+
 }

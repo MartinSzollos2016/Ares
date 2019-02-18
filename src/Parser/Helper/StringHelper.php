@@ -1,16 +1,15 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Defr\Parser\Helper;
 
 final class StringHelper
 {
-    /**
-     * @param string $text
-     *
-     * @return string
-     */
-    public static function removeEmptyLines($text)
-    {
-        return preg_replace('/^[ \t]*[\r\n]+/m', '', $text);
-    }
+
+	public static function removeEmptyLines(string $text): string
+	{
+		return preg_replace('/^[ \t]*[\r\n]+/m', '', $text);
+	}
+
 }

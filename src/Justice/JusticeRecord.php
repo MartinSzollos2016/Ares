@@ -1,26 +1,26 @@
 <?php
 
-namespace Defr\Justice;
+declare(strict_types = 1);
 
-use Defr\ValueObject\Person;
+namespace Defr\Justice;
 
 final class JusticeRecord
 {
-    /**
-     * @var array|Person[]
-     */
-    private $people;
 
-    public function __construct(array $people)
-    {
-        $this->people = $people;
-    }
+	/** @var array|\Defr\ValueObject\Person[] */
+	private $people;
 
-    /**
-     * @return array|Person[]
-     */
-    public function getPeople()
-    {
-        return $this->people;
-    }
+	public function __construct(array $people)
+	{
+		$this->people = $people;
+	}
+
+	/**
+	 * @return array|\Defr\ValueObject\Person[]
+	 */
+	public function getPeople(): array
+	{
+		return $this->people;
+	}
+
 }
