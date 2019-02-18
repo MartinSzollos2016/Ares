@@ -120,7 +120,7 @@ class Ares
 		$url = $this->wrapUrl(sprintf(self::URL_BAS, $id));
 
 		try {
-			$aresRequest = file_get_contents($url, null, stream_context_create($this->contextOptions));
+			$aresRequest = file_get_contents($url, false, stream_context_create($this->contextOptions));
 			if ($this->debug) {
 				file_put_contents($cachedRawFile, $aresRequest);
 			}
