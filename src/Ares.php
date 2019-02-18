@@ -254,7 +254,7 @@ class Ares
 				$data = $vatResponse->children($ns['are']);
 				$elements = $data->children($ns['dtt'])->V->S;
 
-				if ((int) $elements->ico === $id) {
+				if ($elements && (int) $elements->ico === $id) {
 					$record->setTaxId(str_replace('dic=', 'CZ', (string) $elements->p_dph));
 				} else {
 					throw new \Defr\Ares\AresException('DIČ firmy nebylo nalezeno.');
